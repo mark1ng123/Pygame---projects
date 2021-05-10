@@ -1,3 +1,4 @@
 First game created using pretty simple logic:
 Parabola for jumping method, aswell as accelaration and landing placment.
 Circle projectiles and rectangle hitboxes.
+If you want to use the file just extract from the firstGame folder into your current folder.
