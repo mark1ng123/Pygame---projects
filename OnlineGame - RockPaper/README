@@ -1,0 +1,7 @@
+Multiplayer, Rock, Paper and scissors game:
+Using pretty simple logic,
+Networking- For all networking connections and settings
+Game - For logic game properties
+Server - For server running
+Client - For client running
+All code was written with python, using sockets,Threading and pickle for transfering objects and controling eachone.
