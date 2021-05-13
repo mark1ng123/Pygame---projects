@@ -1,0 +1,5 @@
+This game is more advanced then the 1st one,
+Using a little more math and more methods of pygame,
+The game reminds the game: Space Invaders,
+Each char as diffrent amount of hp, Game goes harder after each level passed.
+All the code was written in python, using pygame moudle.
