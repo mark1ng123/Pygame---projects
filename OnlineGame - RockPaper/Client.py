@@ -8,12 +8,13 @@ pygame.font.init()
 Scissors = pygame.image.load('Assets/Scissors.png')
 Rock = pygame.image.load('Assets/Rock.png')
 Paper = pygame.image.load('Assets/Paper.png')
-BackGround = pygame.image.load('Assets/Background.jpg')
 width = 700
 height = 700
+BackGround = pygame.transform.scale(pygame.image.load('Assets/BackGround.jpg'), (width, height))
 win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Client")
 score = [0, 0]
+
 
 class Button:
     def __init__(self, text, x, y, color):
@@ -54,18 +55,18 @@ def redrawWindow(win, game, p):
         win.blit(text, (width / 2 - text.get_width() / 2 + 10, height / 2 - text.get_height() / 2 - 115))
     else:
         font = pygame.font.SysFont("comicsans", 30)
-        text = font.render("Your Move", True, (255, 255, 255))
+        text = font.render("Your Move", True, (0, 0, 0))
         win.blit(text, (165, 300))
 
-        text = font.render("Opponents", True, (255, 255, 255))
+        text = font.render("Opponents", True, (0, 0, 0))
         win.blit(text, (430, 300))
 
         font = pygame.font.SysFont("comicsans", 30)
-        text = font.render("Player 1: " + str(score[0]), True, (255, 255, 255))
+        text = font.render("Player 1: " + str(score[0]), True, (0, 0, 0))
         win.blit(text, (165, 100))
 
         font = pygame.font.SysFont("comicsans", 30)
-        text = font.render("Player 2: " + str(score[1]), True, (255, 255, 255))
+        text = font.render("Player 2: " + str(score[1]), True, (0, 0, 0))
         win.blit(text, (430, 100))
 
         move1 = game.get_player_move(0)
@@ -75,9 +76,9 @@ def redrawWindow(win, game, p):
             text2 = font.render(move2, True, (0, 0, 0))
         else:
             if game.p1Went and p == 0:
-                text1 = font.render(move1, True, (255, 255, 255))
+                text1 = font.render(move1, True, (255, 0, 0))
             elif game.p1Went:
-                text1 = font.render("Locked In", True, (255, 255, 255))
+                text1 = font.render("Locked In", True, (0, 0, 0))
             else:
                 text1 = font.render("Waiting...", True, (255, 0, 0))
 
@@ -101,8 +102,8 @@ def redrawWindow(win, game, p):
     pygame.display.update()
 
 
-btns = [Button("Rock", 100, 500, (0, 0, 0)), Button("Scissors", 275, 500, (255, 0, 0)),
-        Button("Paper", 450, 500, (0, 255, 0))]
+btns = [Button("Rock", 15, 500, (0, 0, 0)), Button("Scissors", 240, 500, (255, 0, 0)),
+        Button("Paper", 465, 500, (0, 255, 0))]
 
 
 def main():
@@ -138,6 +139,10 @@ def main():
             elif game.winner() == -1:
                 text = font.render("Tie Game!", True, (255, 0, 0))
             else:
+                if player == 1:
+                    score[player - 1] += 1
+                else:
+                    score[player + 1] += 1
                 text = font.render("You Lost...", True, (255, 0, 0))
 
             win.blit(text, (width / 2 - text.get_width() / 2, height / 2 - text.get_height() / 2))
