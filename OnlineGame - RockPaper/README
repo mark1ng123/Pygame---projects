@@ -5,3 +5,6 @@ Game - For logic game properties
 Server - For server running
 Client - For client running
 All code was written with python, using sockets,Threading and pickle for transfering objects and controling eachone.
+# Update:
+Fixed the scoring method so it would update on both clients,
+Changed graphics
