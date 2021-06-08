@@ -1,2 +1,2 @@
 # Pygame
-Using pygame moudle in python, making some projects and testing all around
+Using pygame moudle in python, simple and advanced projects
